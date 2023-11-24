@@ -41,8 +41,8 @@ describe("When a page is created", () => {
   })
   it("a footer is displayed", () => {
     render(<Home />);
-    const footerElement = screen.getByTestId("test-footer");
-    expect(footerElement).toBeDefined();
+    const testFooter = screen.getByTestId("test-footer");
+    expect(testFooter).toBeDefined();
 
   })
   it("an event card, with the last event, is displayed", () => {
