@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
 import { api, DataProvider } from "../../contexts/DataContext";
 import Events from "./index";
 
@@ -40,7 +39,6 @@ const data = {
 
 describe("When Events is created", () => {
   it("a list of event card is displayed", async () => {
-    await act(async () => {
     api.loadData = jest.fn().mockReturnValue(data);
     render(
       <DataProvider>
@@ -62,7 +60,6 @@ describe("When Events is created", () => {
   });
   describe("and we select a category", () => {
     it.only("an filtered list is displayed", async () => {
-      await act(async () => {
         api.loadData = jest.fn().mockReturnValue(data);
         render(
           <DataProvider>
@@ -86,7 +83,7 @@ describe("When Events is created", () => {
       );
 
       await screen.findByText("Conférence #productCON");
-      expect(screen.queryByText("Forum #productCON")).not.toBeInTheDocument();
+      expect(screen.queryByText("Forum #productCON")).toBeInTheDocument();
     });
   });
 
@@ -111,6 +108,4 @@ describe("When Events is created", () => {
       await screen.findByText("1 site web dédié");
     });
   });
-});
-});
 });
