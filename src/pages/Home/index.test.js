@@ -30,7 +30,6 @@ describe("When Form is created", () => {
 
 describe("When a page is created", () => {
     it("a list of events is displayed", () => {
-        render(<Home />);
         const {container} = render(<Home/>)
         const listOfEvent = container.querySelector("listOfEvent");
         expect(listOfEvent).toBeDefined();
