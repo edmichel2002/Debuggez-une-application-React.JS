@@ -3,7 +3,7 @@ import Home from "./index";
 
 describe("When Form is created", () => {
     it("a list of fields card is displayed", async () => {
-        render(<Home />);
+        render(<Home/>);
         await screen.findByText("Email");
         await screen.findByText("Nom");
         await screen.findByText("Prénom");
@@ -12,7 +12,7 @@ describe("When Form is created", () => {
 
     describe("and a click is triggered on the submit button", () => {
         it("the success message is displayed", async () => {
-            render(<Home />);
+            render(<Home/>);
             fireEvent(
                 await screen.findByText("Envoyer"),
                 new MouseEvent("click", {
@@ -21,6 +21,7 @@ describe("When Form is created", () => {
                 })
             );
             await screen.findByText("En cours");
+
         });
     });
 
