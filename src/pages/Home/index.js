@@ -12,7 +12,7 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-    const { data } = useData()
+    const { data } = useData();
     const last = data?.events.sort((evtA, evtB) =>
         new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
     )[0];
